@@ -1,0 +1,13 @@
+﻿@model List<KetNoiCSDL.EF.ProductCategory>
+
+<div class="categories">
+    <ul>
+        <h3>Categories</h3>
+        @foreach (var item in Model)
+        {
+            var url = "/san-pham/" + item.MetaTitle + "-" + item.ID;
+            <li><a href="@url">@item.Name</a></li>
+        }
+      
+    </ul>
+</div>

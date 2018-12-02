@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model PagedList.IPagedList<KetNoiCSDL.EF.Product>
+@using PagedList.Mvc;
+
+
+<div class="main">
+    <div class="content">
+    @foreach (var item in Model)
+    {
+        var url = "/chi-tiet/" + item.MetaTitle + "-" + item.ID;
+        <div class="image group">
+            <div class="grid images_3_of_1">
+                <img src="@item.Image" alt="@item.Name" />
+            </div>
+            <div class="grid news_desc">
+                <h3><a href="@url">@item.Name</a> </h3>
+                <h4>Ngày đăng @item.CreatedDate.ToString() bởi <span><a href="#">@item.ModifiedBy</a></span></h4>            
+                <p>@item.Description</p>
+                <p><a href="@url" title="Xem chi tiết">[Chi tiết]</a></p>
+            </div>
+        </div>
+    }
+        
+        <div class="content-pagenation">
+                <li class="active">
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page }));
+                </li>
+            <div class="clear"> </div>
+        </div>
+        @*<div class="content-pagenation">
+            <li><a href="#">Frist</a></li>
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><span>....</span></li>
+            <li><a href="#">Last</a></li>
+            <div class="clear"> </div>
+        </div>*@
+    </div>
+</div>
+

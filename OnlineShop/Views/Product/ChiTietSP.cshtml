@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "ChiTietSP";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var CTSP = (KetNoiCSDL.EF.Product)ViewBag.ctsp;
+}
+
+<h1>Chi tiết sản phẩm</h1>
+<a>------------------------</a>
+
+@{ var item = CTSP;}
+<h3>@item.Name</h3>
+<h3>@item.Price</h3>
+

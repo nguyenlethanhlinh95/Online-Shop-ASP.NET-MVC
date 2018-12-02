@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineShop", "OnlineShop\OnlineShop.csproj", "{ED8B65DF-F031-441D-93A1-DCD9B9621EBA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KetNoiCSDL", "KetNoiCSDL\KetNoiCSDL.csproj", "{62717382-2520-4B5F-A957-5A31D6054D31}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{75C3A4EE-8111-417F-8472-C3D8E8B7D73C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ED8B65DF-F031-441D-93A1-DCD9B9621EBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED8B65DF-F031-441D-93A1-DCD9B9621EBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED8B65DF-F031-441D-93A1-DCD9B9621EBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED8B65DF-F031-441D-93A1-DCD9B9621EBA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62717382-2520-4B5F-A957-5A31D6054D31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62717382-2520-4B5F-A957-5A31D6054D31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62717382-2520-4B5F-A957-5A31D6054D31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62717382-2520-4B5F-A957-5A31D6054D31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75C3A4EE-8111-417F-8472-C3D8E8B7D73C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75C3A4EE-8111-417F-8472-C3D8E8B7D73C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75C3A4EE-8111-417F-8472-C3D8E8B7D73C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75C3A4EE-8111-417F-8472-C3D8E8B7D73C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

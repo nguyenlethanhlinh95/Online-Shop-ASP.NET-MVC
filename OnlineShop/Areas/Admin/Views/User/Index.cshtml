@@ -1,0 +1,78 @@
+﻿@model PagedList.IPagedList<KetNoiCSDL.EF.User>
+@using PagedList.Mvc;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Danh sách người dùng</h2>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Danh sách người dùng
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                @using (Html.BeginForm("Index", "User", FormMethod.Get))
+                {
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="col-md-offset-0">
+                                <input type="text" name="searchString" value="@ViewBag.ChuoiTimKiem" />
+                                <input type="submit" value="Tìm kiếm" class="btn btn-primary" />
+                            </div>
+
+                           
+                        </div>
+                    </div>
+                }
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Tài khoản</th>
+                                <th>Tên</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Quyền</th>
+                                <th>Trạng thái</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr id="row_@item.ID" >
+                                    <td>
+                                        <a href="~/Admin/User/Edit/@item.ID">Sửa</a>|
+                                        @*<a href="Delete/@item.ID">Xóa</a>*@
+                                        @Ajax.ActionLink("Xóa", "Delete", new { @id = item.ID }, new AjaxOptions
+                                           {
+                                               Confirm = "Bạn có muốn xóa người dùng này?",
+                                               OnComplete = "$('#row_" + item.ID + "').remove()",
+                                               HttpMethod = "Delete"
+                                           })
+                                    </td>
+                                    <td>@item.UserName</td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.Phone</td>
+                                    <td>@item.GroupID</td>
+                                    <td>@item.Status</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+
+                    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, @searchString = ViewBag.ChuoiTimKiem}));
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.panel-body -->
+        </div>
+    <!-- /.panel -->
+    </div>
+</div>
+

@@ -1,0 +1,103 @@
+﻿@model OnlineShop.Models.EmailInfor
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Script{
+<script src="~/Assets/Admin/js/Alert.js"></script>
+
+}
+
+
+@using (Html.BeginForm("Send", "GopY", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="main">
+        <div class="content">
+            <div class="section group">
+                <div class="col span_2_of_3">
+                    <div class="contact-form">
+                        <h2>Contact Us</h2>
+                        @using (Html.BeginForm("Create", "Contact", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+                            <div id="status_view">
+                                @if (TempData["AlertMessage"] != null)
+                                {
+                                    <div id="AlertBox" class="alert @TempData["AlertType"] hide">
+                                        @TempData["AlertMessage"]
+                                    </div>
+                                }
+                            </div>
+
+                            <div>
+                                <span>@Html.LabelFor(model => model.Name)</span>
+                                <span>
+                                    @Html.EditorFor(model => model.Name, new
+                             {
+                                 htmlAttributes = new { @class = "form-control" }
+                             })
+                            </span>
+                            <span>@Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })</span>
+                        </div>
+                        <div>
+                            <span>@Html.LabelFor(model => model.Email)</span>
+                            <span>
+                                @Html.EditorFor(model => model.Email, new
+                             {
+                                 htmlAttributes = new { @class = "form-control" }
+                             })
+                        </span>
+                        <span>@Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })</span>
+                    </div>
+                        <div>
+                            <span><label>@Html.LabelFor(model => model.Phone)</label></span>
+                            <span>
+                                @Html.EditorFor(model => model.Phone, new
+                             {
+                                 htmlAttributes = new { @class = "form-control" }
+                             })
+                        </span>
+                        <span>@Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })</span>
+                    </div>
+                        <div>
+                            <span><label>@Html.LabelFor(model => model.Content)</label></span>
+                            <span>
+                                @Html.TextAreaFor(model => model.Content, new
+                             {
+                                 htmlAttributes = new { @class = "form-control" }
+                             })
+                        </span>
+                        <span>@Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })</span>
+                    </div>
+                        <div>
+                            <span><input type="submit" value="Submit" class="myButton btn btn-success"></span>
+                        </div>
+                        }
+
+
+                    </div>
+                </div>
+                <div class="col span_1_of_3">
+                    <div class="contact_info">
+                        <h3>Find Us Here</h3>
+                        <div class="map">
+                            <iframe width="100%" height="175" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.co.in/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265&amp;output=embed"></iframe><br><small><a href="https://maps.google.co.in/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q=Lighthouse+Point,+FL,+United+States&amp;aq=4&amp;oq=light&amp;sll=26.275636,-80.087265&amp;sspn=0.04941,0.104628&amp;ie=UTF8&amp;hq=&amp;hnear=Lighthouse+Point,+Broward,+Florida,+United+States&amp;t=m&amp;z=14&amp;ll=26.275636,-80.087265" style="color:#666;text-align:left;font-size:12px">View Larger Map</a></small>
+                        </div>
+                    </div>
+                    <div class="company_address">
+                        <h3>Company Information :</h3>
+                        <p>500 Lorem Ipsum Dolor Sit,</p>
+                        <p>22-56-2-9 Sit Amet, Lorem,</p>
+                        <p>USA</p>
+                        <p>Phone:(00) 222 666 444</p>
+                        <p>Fax: (000) 000 00 00 0</p>
+                        <p>Email: <span><a href="#">info@mycompany.com</a></span></p>
+                        <p>Follow on: <span>Facebook</span>, <span>Twitter</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

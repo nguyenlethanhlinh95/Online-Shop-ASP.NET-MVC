@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "Cập nhật tin tức";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+@model KetNoiCSDL.EF.Content
+
+<h2>Edit</h2>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Chỉnh sửa nội dung
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- #region form -->
+
+                        @using (Html.BeginForm("Edit", "Content", FormMethod.Post, new { @class = "form-horizontal" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                                <div class="col-sm-10">
+                                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-sm-10">
+                                    @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Detail, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                                <div class="col-sm-10">
+                                    @Html.TextAreaFor(model => model.Detail, new { htmlAttributes = new { @class = "form-control" }, @id = "txtContent" })
+                                    @Html.ValidationMessageFor(model => model.Detail, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.CategoryID, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                                <div class="col-sm-10">
+                                    @Html.DropDownListFor(model => model.CategoryID, null, new
+                               {
+                                   htmlAttributes = new { @class = "form-control" }
+                               })
+                                    @Html.ValidationMessageFor(model => model.CategoryID, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                                <div class="col-md-10">
+                                    @Html.TextBoxFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" }, @id = "txtImage" })
+                                    <a id="SelectImage">Chọn ảnh</a>
+                                    @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Cập nhật" class="btn btn-success" />
+                                </div>
+                            </div>
+                        }
+                        <!-- #endregion -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section jsFooter{
+    <script>
+        $(document).ready(function () {
+            $('#SelectImage').on('click', function (e) {
+                e.preventDefault();
+                var finder = new CKFinder();
+                finder.selectActionFunction =function (url) {
+                    $('#txtImage').val(url);
+                };
+                finder.popup();
+            })
+
+        });
+
+
+        var editor = CKEDITOR.replace('txtContent', {
+            customConfig: '/Assets/Admin/js/Plugins/ckeditor/config.js',
+        });
+    </script>
+}

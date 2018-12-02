@@ -1,0 +1,5 @@
+D:\UDEMY\ASP.NET MVC 5\ThucHanh\OnlineShop\Common\bin\Debug\Common.dll
+D:\UDEMY\ASP.NET MVC 5\ThucHanh\OnlineShop\Common\bin\Debug\Common.pdb
+D:\UDEMY\ASP.NET MVC 5\ThucHanh\OnlineShop\Common\obj\Debug\Common.dll
+D:\UDEMY\ASP.NET MVC 5\ThucHanh\OnlineShop\Common\obj\Debug\Common.pdb
+D:\UDEMY\ASP.NET MVC 5\ThucHanh\OnlineShop\Common\obj\Debug\Common.csprojResolveAssemblyReference.cache
